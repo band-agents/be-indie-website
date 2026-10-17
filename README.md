@@ -4,11 +4,13 @@ A commerce-first redesign of [be-indie.com](https://be-indie.com), modelled on t
 
 Static HTML/CSS/JS, no build tooling beyond a tiny assemble script.
 
+**Branding:** `brand.css` is the brand layer (electric blue `#1701FB`, Poppins, bold uppercase headlines, pill buttons, black + blue announcement bars, blue footer) and the real Be-Indie wordmark lives in `assets/`. It loads after each page's own styles, so changing the look means editing that one file.
+
 ## Pages
 
 | Page | File | Notes |
 | --- | --- | --- |
-| Homepage | `index.html` (`store.html` is the editable source) | Announcement bar, two-tier header with mega-menus, hero, category rail, collab band, new in, shop by fit, best sellers, collaborations, sale, under 1,500 EGP, menswear, trust strip, newsletter |
+| Homepage | `index.html` (`store.html` is the editable source) | Announcement bars, two-tier header with mega-menus, hero, category rail, collab wordmark band, new in, shop by fit, best sellers, sale, under 1,500 EGP, menswear, trust strip, newsletter |
 | Product page | `product.html?h=<handle>` | Gallery with zoom, colour siblings, live size availability, add to bag + mini cart, description / care / returns accordions, recommendations |
 | Collection page | `collection.html?c=<new\|women\|men\|denim\|corsets\|sale\|all>` | Filters (category, size, colour, price, on sale), sorting, active chips, show more, filter state kept in the URL, mobile filter drawer |
 

@@ -1,0 +1,130 @@
+/* Be-Indie brand layer: electric blue, Poppins, bold uppercase headlines, pill buttons.
+   Loaded after each page's own styles so it wins. Brand values taken from be-indie.com. */
+:root{--blue:#1701fb;--blue-dark:#0f00b8;--ink:#121212;--sale:#1701fb;--warm:#f3f3f3;--line:#e6e6e6;
+  --disp:'Poppins',system-ui,sans-serif;--sans:'Poppins',system-ui,sans-serif}
+body{font-family:var(--sans);font-size:14.5px}
+
+/* announcement: black bar + brand blue bar */
+.announce{background:var(--ink);font-weight:500;font-size:12.5px;padding:9px var(--gut)}
+.announce.blue{background:var(--blue)}
+
+/* header */
+.logo{padding:0;line-height:0;display:block}
+.logo img{height:30px;width:auto;object-fit:contain}
+.tabs a{color:var(--blue);text-transform:uppercase;font-size:12px;letter-spacing:.06em;font-weight:500;border-radius:999px}
+.tabs a.on{background:var(--blue);color:#fff}
+.menu nav>li>a{color:var(--blue);text-transform:uppercase;font-size:12.5px;font-weight:500;letter-spacing:.03em}
+.menu nav>li:hover>a{border-color:var(--blue)}
+.menu nav a.sale{color:var(--blue);font-weight:700}
+.util a,.util .ar{color:var(--blue);font-size:13px}
+.util svg,.search svg{stroke:var(--blue)}
+.cart i{background:var(--blue)}
+.search{border-color:var(--blue)}
+.search input{font-size:13.5px}
+.mega h5{color:var(--blue)}
+.mega .tile span{font-size:20px}
+.drawer li a{text-transform:uppercase;font-size:15px;font-weight:500;color:var(--blue)}
+
+/* display type: bold uppercase Poppins */
+.sh h2,.chead h1,.info2 h1,.hero h1,.fit .t b,.news h2,.mega .tile span,.empty h3,.mc header b,.fdr-top b{
+  font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:1.02}
+.hero h1{font-weight:800;font-size:clamp(44px,9.2vw,150px);letter-spacing:-.025em;color:#fff}
+.sh h2{font-size:clamp(28px,3.4vw,52px)}
+.chead h1{font-size:clamp(38px,5vw,76px)}
+.info2 h1{font-size:clamp(24px,2.6vw,38px);letter-spacing:-.01em}
+.fit .t b{font-size:clamp(26px,3vw,46px)}
+.news h2{font-size:clamp(26px,3vw,44px)}
+.mc header b,.fdr-top b{font-size:20px}
+.empty h3{font-size:26px}
+.cat b{font-family:var(--disp);font-weight:600;text-transform:uppercase;font-size:clamp(13px,1.2vw,16px);letter-spacing:.04em;margin-top:12px}
+.eyebrow{color:var(--blue);font-weight:600;letter-spacing:.16em}
+.hero .copy .eyebrow,.fit .t .eyebrow{color:#fff}
+.u{color:var(--blue);border-bottom-color:var(--blue);font-weight:600}
+.sh .u{margin-bottom:6px}
+
+/* hero */
+.hero::before{background:linear-gradient(180deg,rgba(10,10,40,.18),rgba(10,10,40,.5))}
+.hero .cta{gap:14px}
+.hero .cta .u{color:#fff;border:1.5px solid #fff;border-radius:999px;padding:14px 30px;font-size:12px;letter-spacing:.12em;transition:all .2s}
+.hero .cta .u:first-child{background:#fff;color:var(--blue)}
+.hero .cta .u:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* carousels */
+.arrows button{border-color:var(--blue);color:var(--blue)}
+.arrows button:hover{background:var(--blue);color:#fff}
+.prog i{background:var(--blue)}
+.band{background:#fff}
+.band span{font-family:var(--sans);font-style:normal;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(16px,1.9vw,26px);color:var(--ink)}
+.band .w1{font-weight:800}.band .w2{font-weight:300}.band .w3{font-weight:600;font-style:italic}.band .w4{font-weight:500;letter-spacing:.3em}
+.band .x{color:var(--blue);font-size:18px}
+
+/* cards */
+.card .br{color:var(--blue);font-weight:600}
+.card .nm{font-weight:400;font-size:14px}
+.card .pr{font-weight:600}
+.badge{background:var(--blue);font-weight:600;letter-spacing:.06em}
+.badge.n{background:var(--ink)}
+.card .sv{color:var(--blue);font-weight:500}
+.sw i{box-shadow:0 0 0 2px #fff,0 0 0 3px var(--blue)}
+.fit::after{background:linear-gradient(0deg,rgba(10,10,40,.7),rgba(10,10,40,.05) 62%)}
+
+/* buttons: pills */
+.btn,.btn2,.add,.news button,.fdr-ft button,.mc .ft .add{border-radius:999px}
+.add,.news button,.fdr-ft button{background:var(--blue);font-weight:600}
+.add:hover{background:var(--blue-dark)}
+.btn2{border-color:var(--blue);color:var(--blue);font-weight:600}
+.btn2:hover{background:var(--blue);color:#fff}
+.wish{border-radius:50%;border-color:var(--blue)}
+.wish svg{stroke:var(--blue)}
+
+/* trust + newsletter + footer */
+.trust svg{stroke:var(--blue)}
+.news{background:var(--warm)}
+.news form{gap:10px}
+.news input{border-radius:999px;border:1px solid var(--ink);padding:16px 26px}
+.news button{padding:0 34px}
+footer{background:var(--blue);color:#fff;margin-top:clamp(44px,5.5vw,84px)}
+footer .logo img{height:34px;filter:brightness(0) invert(1)}
+footer p.a,footer li{color:rgba(255,255,255,.88)}
+footer h4{color:#fff}
+footer li a:hover{color:#fff;text-decoration:underline}
+footer .bot{border-top-color:rgba(255,255,255,.3);color:rgba(255,255,255,.75)}
+.trust{margin-bottom:0}
+.news{margin-bottom:0}
+
+/* product page */
+.price em{color:var(--blue)}
+.thumbs button.on{border-color:var(--blue)}
+.sws a.on{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.sizes button{border-radius:999px;height:46px}
+.sizes button.on{background:var(--blue);border-color:var(--blue)}
+.sizes button:hover:not(:disabled){border-color:var(--blue)}
+.msg{color:var(--blue);font-weight:500}
+.perks svg{stroke:var(--blue)}
+.acc summary{font-weight:600}
+
+/* collection page */
+.qc a{border-radius:999px;color:var(--blue);border-color:#cfcbf5;font-weight:500;font-size:13px}
+.qc a:hover{border-color:var(--blue)}
+.qc a.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.fbtn,.fg summary,.tg{color:var(--ink);font-weight:600}
+.fbtn svg{stroke:var(--blue)}
+.fbtn i{background:var(--blue)}
+.ck input:checked{background:var(--blue);border-color:var(--blue)}
+.szg button{border-radius:999px}
+.szg button.on{background:var(--blue);border-color:var(--blue)}
+.tg.on .sw2{background:var(--blue)}
+.clg button.on i{box-shadow:0 0 0 2px #fff,0 0 0 3px var(--blue)}
+.chips button{border-radius:999px;background:#eceaff;color:var(--blue);font-weight:500}
+.chips button:hover{background:#dedbff}
+.chips .clr{background:none;color:var(--ink)}
+.more .pb i{background:var(--blue)}
+.sort select{border-radius:999px;border-color:#cfcbf5}
+.pr2 input{border-radius:999px}
+
+@media (max-width:1100px){.logo img{height:26px}}
+@media (max-width:700px){
+  .hero h1{font-size:14.5vw;line-height:.95;white-space:normal}
+  .logo img{height:22px}
+  .news form{gap:10px}.news input{border-right:1px solid var(--ink)}
+}
