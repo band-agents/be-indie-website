@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BE-INDIE | Denim & Ready-to-Wear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111; --bg:#fff; --warm:#f6f1eb; --line:#e4dfd8; --mute:#7a746b; --burg:#5e2626; --sale:#a8302c;
+  --disp:'Italiana',Georgia,serif; --sans:'Jost',system-ui,sans-serif; --gut:clamp(16px,2.6vw,38px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;width:100%;height:100%;object-fit:cover}
+ul,li{list-style:none}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:#444}
+.u{border-bottom:1px solid currentColor;padding-bottom:3px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;white-space:nowrap}
+
+/* ---------- announcement ---------- */
+.announce{background:#111;color:#fff;text-align:center;font-size:13px;padding:7px var(--gut);letter-spacing:.01em}
+.announce a{text-decoration:underline;text-underline-offset:3px;margin-left:4px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px var(--gut) 6px}
+.tabs{display:flex;gap:6px}
+.tabs a{padding:11px 16px;font-size:15px;font-weight:400}
+.tabs a.on{background:#e8e4dc;font-weight:500}
+.logo{font-family:var(--disp);font-size:34px;letter-spacing:.3em;padding-left:.3em;line-height:1}
+.util{display:flex;justify-content:flex-end;align-items:center;gap:22px}
+.util .ar{font-size:14px}
+.util svg{width:22px;height:22px;stroke:#111;fill:none;stroke-width:1.3}
+.cart{position:relative}
+.cart i{position:absolute;right:-6px;top:-6px;background:#111;color:#fff;font-style:normal;font-size:10px;width:16px;height:16px;border-radius:50%;display:grid;place-items:center}
+.menu{display:flex;align-items:center;justify-content:space-between;padding:0 var(--gut)}
+.menu nav{display:flex;gap:clamp(14px,1.9vw,30px)}
+.menu nav>li>a{display:block;padding:14px 0 12px;font-size:15px;white-space:nowrap;border-bottom:2px solid transparent}
+.menu nav>li:hover>a{border-color:#111}
+.menu nav a.sale{color:var(--sale)}
+.search{display:flex;align-items:center;gap:8px;border-bottom:1px solid #111;width:min(260px,22vw);padding:6px 0;margin:6px 0}
+.search svg{width:17px;height:17px;stroke:#111;fill:none;stroke-width:1.4;flex:none}
+.search input{border:0;outline:0;font:inherit;font-size:15px;width:100%;background:none}
+.search input::placeholder{color:#777}
+/* mega */
+.menu nav>li{position:static}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px var(--gut) 36px;display:none;grid-template-columns:repeat(3,1fr) 1.4fr 1.4fr;gap:34px}
+.menu nav>li:hover .mega{display:grid}
+.mega h5{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;margin-bottom:14px;color:var(--mute)}
+.mega li{margin-bottom:10px}
+.mega li a:hover{text-decoration:underline;text-underline-offset:3px}
+.mega .tile{position:relative;aspect-ratio:4/5;overflow:hidden;display:block}
+.mega .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.45),transparent 55%)}
+.mega .tile span{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font-family:var(--disp);font-size:26px}
+.burger,.ms{display:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:min(700px,calc(100vh - 150px));min-height:520px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;color:#fff;overflow:hidden}
+.hero .ph{position:relative;overflow:hidden}
+.hero .ph img{object-position:50% 20%}
+.hero::before{content:"";position:absolute;inset:0;background:rgba(10,10,10,.34);z-index:1}
+.hero .copy{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding-bottom:clamp(28px,5vh,56px)}
+.hero .copy .eyebrow{color:#fff;margin-bottom:6px}
+.hero h1{font-family:var(--disp);font-weight:400;font-size:clamp(64px,12vw,190px);line-height:.95;letter-spacing:.01em;color:rgba(255,255,255,.92);white-space:nowrap}
+.hero .cta{display:flex;gap:34px;margin-top:20px}
+
+/* ---------- section head ---------- */
+section{padding:clamp(44px,5.5vw,84px) var(--gut) 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px;gap:18px}
+.sh .eyebrow{display:block;margin-bottom:10px}
+.sh h2{font-family:var(--disp);font-weight:400;font-size:clamp(38px,4.6vw,68px);line-height:1}
+.sh .r{display:flex;align-items:center;gap:20px}
+.arrows{display:flex;gap:10px}
+.arrows button{width:46px;height:46px;border:1px solid #111;border-radius:50%;display:grid;place-items:center;transition:background .2s,color .2s}
+.arrows button:hover{background:#111;color:#fff}
+.arrows svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.3}
+
+/* ---------- rail ---------- */
+.rail{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding-left:0}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start}
+.prog{height:1px;background:var(--line);margin-top:26px;position:relative}
+.prog i{position:absolute;left:0;top:-.5px;height:2px;background:#111;width:30%;transition:left .1s}
+
+/* category cards */
+.cat{flex:0 0 clamp(210px,24.3vw,340px)}
+.cat .im{aspect-ratio:5/7;overflow:hidden;background:#eee}
+.cat .im img{transition:transform .9s}
+.cat:hover img{transform:scale(1.04)}
+.cat b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(24px,2.2vw,32px);margin-top:14px}
+
+/* collab / brand band */
+.band{margin-top:clamp(44px,5.5vw,84px);border-block:1px solid var(--line);display:flex;justify-content:space-around;align-items:center;gap:30px;padding:30px var(--gut);flex-wrap:wrap}
+.band span{white-space:nowrap;color:#222;font-size:clamp(22px,2.4vw,34px)}
+.band .w1{font-family:var(--disp);letter-spacing:.14em}
+.band .w2{font-weight:600;letter-spacing:.02em}
+.band .w3{font-family:var(--disp);font-style:italic}
+.band .w4{font-weight:300;letter-spacing:.3em;text-transform:uppercase;font-size:clamp(18px,2vw,28px)}
+.band .x{color:var(--mute);font-size:18px}
+
+/* product card */
+.card{flex:0 0 clamp(200px,20.8vw,300px);position:relative}
+.card .ph{position:relative;aspect-ratio:2/3;overflow:hidden;background:#eee}
+.card .ph img{position:absolute;inset:0;transition:opacity .5s}
+.card .ph img+img{opacity:0}
+.card:hover .ph img+img{opacity:1}
+.card .cl{position:absolute;inset:0;z-index:2}
+.card .heart{position:absolute;right:10px;top:10px;z-index:3}
+.card .heart svg{width:22px;height:22px;stroke:#111;fill:none;stroke-width:1.3}
+.card .heart.on svg{fill:#111}
+.badge{position:absolute;left:0;top:12px;z-index:3;background:var(--sale);color:#fff;font-size:12px;font-weight:500;padding:4px 9px;letter-spacing:.04em}
+.badge.n{background:#111}
+.card .info{padding:12px 12px 0;min-height:112px}
+.card .br{font-size:10px;letter-spacing:.16em;font-weight:600}
+.card .nm{font-size:14.5px;margin:4px 0 14px;line-height:1.3;font-weight:300;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:38px}
+.card .pr{font-size:14.5px;font-weight:400}
+.card .pr s{color:var(--mute);margin-left:8px;font-weight:300}
+.card .sv{font-size:12.5px;color:var(--sale);margin-top:3px}
+.sw{display:flex;align-items:center;gap:9px;margin-top:10px}
+.sw i{width:15px;height:15px;border-radius:50%;border:1px solid rgba(0,0,0,.25);box-shadow:0 0 0 2px #fff,0 0 0 3px #111}
+.sw small{font-size:10.5px;color:var(--mute);letter-spacing:.06em}
+
+/* grids */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px 16px}
+.grid .card{flex:none}
+
+/* fit cards */
+.fit3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fit{position:relative;aspect-ratio:4/5;overflow:hidden;color:#fff;display:block}
+.fit img{object-position:50% 88%;transition:transform 1s}
+.fit:hover img{transform:scale(1.04)}
+.fit::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.62),rgba(0,0,0,.05) 60%)}
+.fit .t{position:absolute;left:clamp(18px,2vw,30px);bottom:clamp(18px,2vw,30px);z-index:2}
+.fit .t .eyebrow{color:rgba(255,255,255,.85);display:block;margin-bottom:6px}
+.fit .t b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(34px,4vw,60px);line-height:1;margin-bottom:12px}
+
+/* burgundy collab block */
+.burg{background:var(--burg);color:#fff;margin-top:clamp(44px,5.5vw,84px);padding:clamp(48px,6vw,96px) var(--gut);display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,90px);align-items:center}
+.burg h2{font-family:var(--disp);font-weight:400;font-size:clamp(42px,5.4vw,84px);line-height:1;margin:12px 0 22px}
+.burg p{max-width:460px;line-height:1.7;font-weight:300;opacity:.88;margin-bottom:28px;font-size:16px}
+.burg .eyebrow{color:#e5c9c0}
+.btn{display:inline-block;background:#fff;color:#111;padding:15px 34px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;transition:background .2s}
+.btn:hover{background:#eadfd4}
+.burg ul li{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.22);padding:18px 0;font-family:var(--disp);font-size:clamp(24px,2.6vw,38px)}
+.burg ul li:last-child{border-bottom:1px solid rgba(255,255,255,.22)}
+.burg ul small{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:clamp(44px,5.5vw,84px) var(--gut) 0;padding:28px 0;border-block:1px solid var(--line)}
+.trust div{display:flex;gap:14px;align-items:center}
+.trust svg{width:30px;height:30px;stroke:#111;fill:none;stroke-width:1.1;flex:none}
+.trust b{display:block;font-weight:500;font-size:14px}
+.trust span{font-size:13px;color:var(--mute)}
+
+/* newsletter */
+.news{background:var(--warm);margin-top:clamp(44px,5.5vw,84px);padding:clamp(44px,5vw,76px) var(--gut);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.news h2{font-family:var(--disp);font-weight:400;font-size:clamp(34px,4vw,58px);line-height:1.05}
+.news p{color:#555;margin-top:10px;font-weight:300}
+.news form{display:flex}
+.news input{flex:1;border:1px solid #111;border-right:0;padding:16px 18px;font:inherit;background:#fff;outline:0}
+.news button{background:#111;color:#fff;padding:0 30px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+
+/* footer */
+footer{padding:clamp(44px,5vw,70px) var(--gut) 24px}
+footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px;padding-bottom:40px}
+footer .logo{font-size:30px;display:block;margin-bottom:14px}
+footer p.a{color:var(--mute);max-width:300px;line-height:1.6;font-weight:300}
+footer h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+footer li{margin-bottom:10px;font-weight:300}
+footer li a:hover{text-decoration:underline;text-underline-offset:3px}
+footer .bot{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:var(--mute)}
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+/* drawer */
+.drawer{position:fixed;inset:0;background:#fff;z-index:90;transform:translateX(-100%);transition:transform .4s;padding:20px var(--gut);overflow:auto}
+.drawer.open{transform:none}
+.drawer .tabs{margin:20px 0 8px}
+.drawer li a{display:block;padding:15px 0;border-bottom:1px solid var(--line);font-size:18px}
+.drawer .x{font-size:26px}
+
+@media (max-width:1100px){
+  .menu nav{display:none}.menu .search{display:none}.menu{display:none}
+  .top{grid-template-columns:auto 1fr auto;padding:10px var(--gut)}
+  .tabs{display:none}
+  .burger,.ms{display:block}
+  .top .logo{text-align:center;font-size:26px}
+  .util .ar{display:none}.util .acc{display:none}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .burg,.news{grid-template-columns:1fr}
+  .trust{grid-template-columns:repeat(2,1fr)}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:700px){
+  .hero{grid-template-columns:1fr;min-height:560px}
+  .hero .ph:nth-child(n+2){display:none}
+  .hero h1{font-size:19vw;white-space:normal;line-height:.9}
+  .fit3{grid-template-columns:1fr}
+  .fit{aspect-ratio:4/4.4}
+  .grid{grid-template-columns:repeat(2,1fr);gap:24px 10px}
+  .card{flex-basis:62vw}
+  .cat{flex-basis:62vw}
+  .arrows{display:none}
+  .sh{align-items:flex-start}
+  .news form{flex-direction:column}.news input{border-right:1px solid #111}.news button{padding:16px}
+  .announce{font-size:11.5px}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">Get 5% off when you pay with a credit card · 14-day returns, also in any Be-Indie store · <a href="#new">Shop new in</a></div>
+
+<header id="hdr">
+  <div class="top">
+    <div class="tabs"><a href="#" class="on">Womenswear</a><a href="#men">Menswear</a></div>
+    <button class="burger" id="burger" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" stroke="#111" fill="none" stroke-width="1.4"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    <a href="#" class="logo">BE-INDIE</a>
+    <div class="util">
+      <button class="ms" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
+      <a class="ar" href="#">العربية</a>
+      <button class="acc" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.2-6 8-6s7 1.5 8 6"/></svg></button>
+      <button aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z"/></svg></button>
+      <button class="cart" aria-label="Bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/></svg><i id="bagN">0</i></button>
+    </div>
+  </div>
+  <div class="menu">
+    <nav>
+      <li><a href="collection.html?c=new">New in</a></li>
+      <li><a href="collection.html?c=women">Women</a>
+        <div class="mega" id="megaW"></div></li>
+      <li><a href="collection.html?c=men">Men</a>
+        <div class="mega" id="megaM"></div></li>
+      <li><a href="collection.html?c=denim">Denim</a>
+        <div class="mega" id="megaD"></div></li>
+      <li><a href="collection.html?c=corsets">Corsets</a></li>
+      <li><a href="#picks">Best Sellers</a></li>
+      <li><a href="#collabs">Collaborations</a></li>
+      <li><a href="collection.html?c=sale" class="sale">Sale</a></li>
+    </nav>
+    <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input placeholder="What are you looking for?" aria-label="Search"></label>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <button class="x" id="closeD" aria-label="Close">✕</button>
+  <div class="tabs"><a href="#" class="on">Womenswear</a><a href="#men">Menswear</a></div>
+  <ul>
+    <li><a href="collection.html?c=new">New in</a></li><li><a href="collection.html?c=women">Women</a></li><li><a href="collection.html?c=men">Men</a></li><li><a href="collection.html?c=denim">Denim</a></li><li><a href="collection.html?c=corsets">Corsets</a></li><li><a href="#picks">Best Sellers</a></li><li><a href="#collabs">Collaborations</a></li><li><a href="collection.html?c=sale" style="color:var(--sale)">Sale</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="ph"></div><div class="ph"></div><div class="ph"></div>
+  <div class="copy">
+    <span class="eyebrow">Autumn · Winter 2026</span>
+    <h1>The Denim Edit</h1>
+    <div class="cta"><a class="u" href="#new">Shop new in</a><a class="u" href="#fit">Shop denim</a></div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section id="cats">
+  <div class="sh"><div><span class="eyebrow">Shop by category</span><h2>The wardrobe</h2></div>
+    <div class="arrows"><button data-r="rCat" data-d="-1" aria-label="Prev"><svg viewBox="0 0 16 16"><path d="m10 3-5 5 5 5"/></svg></button><button data-r="rCat" data-d="1" aria-label="Next"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div></div>
+  <div class="rail" id="rCat"></div><div class="prog"><i></i></div>
+</section>
+
+<!-- COLLAB BAND -->
+<div class="band" id="collabs">
+  <span class="w3">Form</span><span class="x">×</span><span class="w2">Kiki’s</span><span class="x">×</span><span class="w1">Hind El Khodary</span><span class="x">×</span><span class="w4">Rizo</span><span class="x">×</span><span class="w3">Mothernaked</span>
+</div>
+
+<!-- NEW IN -->
+<section id="new">
+  <div class="sh"><div><span class="eyebrow">Just arrived</span><h2>New in</h2></div>
+    <div class="r"><a class="u" href="collection.html?c=new">View all</a><div class="arrows"><button data-r="rNew" data-d="-1" aria-label="Prev"><svg viewBox="0 0 16 16"><path d="m10 3-5 5 5 5"/></svg></button><button data-r="rNew" data-d="1" aria-label="Next"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div></div></div>
+  <div class="rail" id="rNew"></div><div class="prog"><i></i></div>
+</section>
+
+<!-- FIT -->
+<section id="fit">
+  <div class="sh"><div><span class="eyebrow">Shop by fit</span><h2>Find your fit</h2></div><a class="u" href="collection.html?c=denim">All denim</a></div>
+  <div class="fit3" id="fit3"></div>
+</section>
+
+<!-- PICKS -->
+<section id="picks">
+  <div class="sh"><div><span class="eyebrow">Most loved</span><h2>Best sellers</h2></div>
+    <div class="r"><a class="u" href="#picks">View all</a><div class="arrows"><button data-r="rPick" data-d="-1" aria-label="Prev"><svg viewBox="0 0 16 16"><path d="m10 3-5 5 5 5"/></svg></button><button data-r="rPick" data-d="1" aria-label="Next"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div></div></div>
+  <div class="rail" id="rPick"></div><div class="prog"><i></i></div>
+</section>
+
+<!-- COLLABS BLOCK -->
+<div class="burg">
+  <div>
+    <span class="eyebrow">Collaborations</span>
+    <h2>Better together</h2>
+    <p>Be-Indie works with designers and brands we admire. Limited collections, made in small runs — be first to know about every drop, collaboration and event.</p>
+    <a class="btn" href="#collabs">Shop collaborations</a>
+  </div>
+  <ul>
+    <li>Be-Indie × Form <small>12 pieces</small></li>
+    <li>Be-Indie × Kiki’s <small>26 pieces</small></li>
+    <li>Hind El Khodary × Be-Indie <small>9 pieces</small></li>
+    <li>Rizo × Be-Indie <small>8 pieces</small></li>
+    <li>Be-Indie × Mothernaked <small>1 piece</small></li>
+  </ul>
+</div>
+
+<!-- SALE -->
+<section id="sale">
+  <div class="sh"><div><span class="eyebrow">End of season</span><h2>Up to 70% off</h2></div><a class="u" href="collection.html?c=sale">Shop the sale</a></div>
+  <div class="grid" id="gSale"></div>
+</section>
+
+<!-- UNDER -->
+<section id="under">
+  <div class="sh"><div><span class="eyebrow">Small price, big edit</span><h2>Under EGP 1,500</h2></div><a class="u" href="#under">View all</a></div>
+  <div class="grid" id="gUnder"></div>
+</section>
+
+<!-- MEN -->
+<section id="men">
+  <div class="sh"><div><span class="eyebrow">Menswear</span><h2>For him</h2></div>
+    <div class="r"><a class="u" href="#men">View all</a><div class="arrows"><button data-r="rMen" data-d="-1" aria-label="Prev"><svg viewBox="0 0 16 16"><path d="m10 3-5 5 5 5"/></svg></button><button data-r="rMen" data-d="1" aria-label="Next"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div></div></div>
+  <div class="rail" id="rMen"></div><div class="prog"><i></i></div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div><svg viewBox="0 0 32 32"><path d="M6 16a10 10 0 1 0 3-7M6 5v5h5"/></svg><p><b>14-day returns</b><span>From the date of delivery</span></p></div>
+  <div><svg viewBox="0 0 32 32"><path d="M4 12 16 5l12 7v14H4zM12 26v-8h8v8"/></svg><p><b>Return in store</b><span>At any Be-Indie branch</span></p></div>
+  <div><svg viewBox="0 0 32 32"><rect x="3" y="8" width="26" height="16" rx="2"/><path d="M3 14h26"/></svg><p><b>5% off with a credit card</b><span>Applied at checkout</span></p></div>
+  <div><svg viewBox="0 0 32 32"><path d="M5 6h22v15H13l-6 5v-5H5z"/></svg><p><b>Need a hand?</b><span>Contact & FAQ</span></p></div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="news">
+  <div><h2>First to know about drops, collabs & events</h2><p>Sign up for exclusive news on product drops, collaborations and events.</p></div>
+  <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;font-size:18px&quot;>Thank you — you are on the list.</p>'"><input type="email" placeholder="Enter your email" required aria-label="Email"><button type="submit">Subscribe</button></form>
+</div>
+
+<footer>
+  <div class="cols">
+    <div><a href="#" class="logo">BE-INDIE</a><p class="a">Denim and ready-to-wear for women and men.</p></div>
+    <div><h4>Shop</h4><ul><li><a href="collection.html?c=new">New in</a></li><li><a href="collection.html?c=women">Women</a></li><li><a href="collection.html?c=men">Men</a></li><li><a href="collection.html?c=denim">Denim</a></li><li><a href="collection.html?c=sale">Sale</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="#">Contact us</a></li><li><a href="#">FAQ</a></li><li><a href="#">Care instructions</a></li><li><a href="#">Returns</a></li></ul></div>
+    <div><h4>Be-Indie</h4><ul><li><a href="#">About us</a></li><li><a href="#">Terms of service</a></li><li><a href="#">Privacy policy</a></li><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li></ul></div>
+  </div>
+  <div class="bot"><span>© 2026 BE-INDIE</span><span>Egypt · EGP</span></div>
+</footer>
+
+<a class="wa" href="#" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+
+<script src="data.js"></script>
+<script>
+const D=window.DATA;
+const img=(s,w)=>s+(s.includes('?')?'&':'?')+'width='+w;
+const egp=n=>n.toLocaleString('en-US')+' EGP';
+const heart='<svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z"/></svg>';
+const COL={'midnight blue':'#1b2a4a','ice blue':'#cfe0ea','la blue':'#5c86b8','stone blue':'#7f9fc4','dirty indigo':'#2b3550','indigo':'#2b3550','cream':'#efe6d2','beige':'#cdb99a','black':'#111','off white':'#f1ece1','white':'#fafafa','olive':'#6b6a3a','charcoal':'#454545','grey':'#8a8a8a','brown':'#6b4a32','red':'#a3262a','burgundy':'#6a1f2b','yellow':'#e3c34a','indie blue':'#3d6aa5','light blue':'#a9c7e3','washed out':'#b8c7d6','sky blue':'#9cc3e6','blue':'#4a78b0','cali blue':'#5f8fc2','medium blue':'#4a78b0','faded indie blue':'#7ea1cc','pink':'#e6a9b5','green':'#5d7a5a','navy':'#1b2a4a','dirty wash':'#4b5a72','light stone blue':'#9db8d6','medium acid blue':'#5d86b3'};
+function colour(t){const m=t.match(/\s-\s*(.+)$/);const n=(m?m[1]:'').trim().toLowerCase();if(!n)return null;let k=Object.keys(COL).filter(k=>n.includes(k)).sort((a,b)=>b.length-a.length)[0];return{name:m[1].trim(),hex:k?COL[k]:'#c9c2b6'}}
+function title(t){return t.replace(/\s+-\s*.+$/,'').replace(/\s*-[A-Za-z].*$/,'').trim()}
+function card(p,tag){
+  const off=p.c?Math.round((1-p.p/p.c)*100):0, c=colour(p.t);
+  const badge=off?`<span class="badge">-${off}%</span>`:(tag?`<span class="badge n">${tag}</span>`:'');
+  return `<article class="card"><div class="ph">${badge}<button class="heart" aria-label="Wishlist">${heart}</button><a class="cl" href="product.html?h=${p.h}" aria-label="${p.t}"></a>
+   <img loading="lazy" src="${img(p.i[0],600)}" alt="${p.t}">${p.i[1]?`<img loading="lazy" src="${img(p.i[1],600)}" alt="">`:''}</div>
+   <div class="info"><div class="br">BE-INDIE</div><div class="nm">${title(p.t)}</div>
+   <div class="pr">${egp(p.p)}${p.c?`<s>${egp(p.c)}</s>`:''}</div>${p.c?`<div class="sv">You save ${egp(p.c-p.p)}</div>`:''}
+   ${c?`<div class="sw"><i style="background:${c.hex}"></i><small>${c.name}</small></div>`:''}</div></article>`;
+}
+document.querySelectorAll('#hero .ph').forEach((el,i)=>el.innerHTML=`<img src="${img(D.hero[i],1100)}" alt="">`);
+document.getElementById('rCat').innerHTML=D.cats.map(c=>`<a class="cat" href="#new"><div class="im"><img loading="lazy" src="${img(c.i,600)}" alt="${c.n}"></div><b>${c.n}</b></a>`).join('');
+document.getElementById('rNew').innerHTML=D.new.map((p,i)=>card(p,i<4?'New':'')).join('');
+document.getElementById('rPick').innerHTML=D.best.map(p=>card(p)).join('');
+document.getElementById('rMen').innerHTML=D.men.map(p=>card(p)).join('');
+document.getElementById('gSale').innerHTML=D.sale.map(p=>card(p)).join('');
+document.getElementById('gUnder').innerHTML=D.under.map(p=>card(p)).join('');
+document.getElementById('fit3').innerHTML=D.fits.slice(0,3).map(f=>`<a class="fit" href="#fit"><img loading="lazy" src="${img(f.i,900)}" alt="${f.n}"><div class="t"><span class="eyebrow">Denim</span><b>${f.n}</b><span class="u">Shop now</span></div></a>`).join('');
+const links=a=>a.map(x=>`<li><a href="#cats">${x}</a></li>`).join('');
+const tile=(f,l)=>`<a class="tile" href="#fit"><img loading="lazy" src="${img(f.i,500)}" alt=""><span>${l}</span></a>`;
+document.getElementById('megaW').innerHTML=`<div><h5>Clothing</h5><ul>${links(['Jeans','Tops','Shirts','T-Shirts','Dresses','Matching Sets','Jackets & Outerwear'])}</ul></div><div><h5>Edits</h5><ul>${links(['Corsets','The Knit Shop','Leather Edit','Shorts','Skirts','Sports Bra'])}</ul></div><div><h5>Shop by</h5><ul>${links(['New in','Best Sellers','Resort Collection','No Pressure Fits','Sale'])}</ul></div>${tile(D.cats[1],'Corsets')}${tile(D.fits[0],'Destiny')}`;
+document.getElementById('megaM').innerHTML=`<div><h5>Clothing</h5><ul>${links(['Upperwear','Bottoms','Sets','Shirts','Shorts'])}</ul></div><div><h5>Shop by</h5><ul>${links(['New in','Best Sellers','Sale','Unisex'])}</ul></div><div></div>${tile({i:D.men[0].i[0]},'Menswear')}${tile({i:D.men[2].i[0]},'Jeans')}`;
+document.getElementById('megaD').innerHTML=`<div><h5>Fits</h5><ul>${links(D.fits.map(f=>f.n))}</ul></div><div><h5>Washes</h5><ul>${links(['Midnight Blue','Ice Blue','LA Blue','Stone Blue','Dirty Indigo','Black'])}</ul></div><div><h5>Shop by</h5><ul>${links(['New in','Be-Dazzled','Best Sellers','Sale'])}</ul></div>${tile(D.fits[1],'Wide Leg')}${tile(D.fits[2],'Barrel')}`;
+document.addEventListener('click',e=>{
+  const h=e.target.closest('.heart');if(h){h.classList.toggle('on')}
+  const a=e.target.closest('[data-r]');if(a){const r=document.getElementById(a.dataset.r);r.scrollBy({left:a.dataset.d*r.clientWidth*.8,behavior:'smooth'})}
+});
+document.querySelectorAll('.rail').forEach(r=>{
+  const bar=r.parentElement.querySelector('.prog i');if(!bar)return;
+  const up=()=>{const vis=r.clientWidth/r.scrollWidth;bar.style.width=Math.min(100,vis*100)+'%';const max=r.scrollWidth-r.clientWidth;const p=max>0?r.scrollLeft/max:0;bar.style.left=(p*(100-vis*100))+'%'};
+  r.addEventListener('scroll',up,{passive:true});addEventListener('resize',up);setTimeout(up,300);
+  r.querySelectorAll('img').forEach(i=>i.addEventListener('load',up));
+});
+const dr=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>dr.classList.add('open');
+document.getElementById('closeD').onclick=()=>dr.classList.remove('open');
+dr.querySelectorAll('a').forEach(a=>a.onclick=()=>dr.classList.remove('open'));
+</script>
+</body>
+</html>
